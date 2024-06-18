@@ -24,12 +24,12 @@ public class MovementModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private char type;
 
     @Column(name = "territory_id")
-    private int territoryId;
+    private Long territoryId;
 
     private String owner;
     private LocalDate date;
