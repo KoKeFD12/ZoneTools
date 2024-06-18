@@ -32,6 +32,7 @@ public class MovementModel {
     private Long territoryId;
 
     private String owner;
+
     private LocalDate date;
 
 }
