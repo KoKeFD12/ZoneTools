@@ -31,7 +31,7 @@ public class MovementModel {
     @Column(name = "territory_id")
     private int territoryId;
 
-    private String name;
+    private String owner;
     private LocalDate date;
 
 }
