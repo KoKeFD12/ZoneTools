@@ -9,5 +9,7 @@ import java.util.List;
 public interface MovementDao extends JpaRepository<MovementModel, Long> {
 
     List<MovementModel> findAllByDate(LocalDate date);
+    List<MovementModel> findAllByTerritoryId(Long id);
+    List<MovementModel> findAllByOwnerContaining(String owner);
 
 }

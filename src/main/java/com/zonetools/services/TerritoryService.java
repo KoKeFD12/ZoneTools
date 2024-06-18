@@ -21,7 +21,7 @@ public interface TerritoryService {
 
     Optional<MovementModel> findMovementById(Long id);
 
-    Optional<MovementModel> findMovementByDate(LocalDate date);
+    List<MovementModel> findMovementsByDate(LocalDate date);
 
     List<MovementModel> findMovementsByTerritoryID(Long id);
 
