@@ -15,4 +15,6 @@ public interface TerritoryService {
 
     TerritoryModel saveTerritory(TerritoryModel territory);
 
+    void deleteTerritory(TerritoryModel territory);
+
 }

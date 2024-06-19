@@ -37,4 +37,9 @@ public class DefaultTerritoryService implements TerritoryService {
         return territoryDao.save(territory);
     }
 
+    @Override
+    public void deleteTerritory(TerritoryModel territory) {
+        territoryDao.delete(territory);
+    }
+
 }
