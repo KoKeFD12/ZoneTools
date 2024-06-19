@@ -20,4 +20,6 @@ public interface MovementService {
 
     MovementModel saveMovement(MovementModel movementModel);
 
+    void deleteMovement(MovementModel movementModel);
+
 }

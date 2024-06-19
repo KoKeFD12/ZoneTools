@@ -48,4 +48,9 @@ public class DefaultMovementService implements MovementService {
         return movementDao.save(movementModel);
     }
 
+    @Override
+    public void deleteMovement(MovementModel movementModel) {
+        movementDao.delete(movementModel);
+    }
+
 }
