@@ -1,8 +1,6 @@
 package com.zonetools.services.impl;
 
-import com.zonetools.daos.MovementDao;
 import com.zonetools.daos.TerritoryDao;
-import com.zonetools.models.MovementModel;
 import com.zonetools.models.TerritoryModel;
 import com.zonetools.services.TerritoryService;
 
@@ -10,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
