@@ -126,4 +126,5 @@ class DefaultTerritoryServiceTest {
         Assertions.assertEquals(CUSTOM_LAST_ASSIGNED, territoryModel.getLastAssigned());
         Assertions.assertEquals(CUSTOM_LAST_RETURNED, territoryModel.getLastReturned());
     }
+
 }

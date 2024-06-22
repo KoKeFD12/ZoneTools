@@ -140,4 +140,5 @@ class DefaultMovementServiceTest {
         Assertions.assertEquals(CUSTOM_OWNER, movementModel.getOwner());
         Assertions.assertEquals(CUSTOM_DATE, movementModel.getDate());
     }
+
 }
