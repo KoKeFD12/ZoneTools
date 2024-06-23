@@ -26,7 +26,7 @@ public class MovementModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private char type;
+    private Character type;
 
     @Column(name = "territory_id")
     private Long territoryId;

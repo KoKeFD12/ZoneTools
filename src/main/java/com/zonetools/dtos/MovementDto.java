@@ -13,7 +13,7 @@ public class MovementDto {
 
     private Long id;
 
-    private char type;
+    private Character type;
 
     private Long territoryId;
 

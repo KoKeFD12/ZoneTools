@@ -13,7 +13,7 @@ public class TerritoryDto {
 
     private Long id;
 
-    private int doors;
+    private Integer doors;
 
     private String imageUrl;
 

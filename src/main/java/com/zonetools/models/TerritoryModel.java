@@ -23,7 +23,7 @@ public class TerritoryModel {
     @Id
     private Long id;
 
-    private int doors;
+    private Integer doors;
 
     @Column(name = "image_url")
     private String imageUrl;
