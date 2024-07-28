@@ -10,8 +10,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <form action="/territories/new-territory" method="post">
-
+    <form th:action="@{/territories/new-territory}" method="post" th:object="${territoryDto}">
+        <label for="id">ID:</label>
+        <input id="id" type="number" th:field="*{id}">
+        <label for="doors">Doors:</label>
+        <input id="doors" type="number" th:field="*{doors}">
+        <label for="image">Image:</label>
+        <input id="image" type="url" th:field="*{imageUrl}">
+        <label for="owner">Owner:</label>
+        <input id="owner" type="text" th:field="*{owner}">
+        <label for="lastAssigned">Last assigned:</label>
+        <input id="lastAssigned" type="date" th:field="*{lastAssigned}">
+        <label for="lastReturned">Last returned:</label>
+        <input id="lastReturned" type="date" th:field="*{lastReturned}">
+        <button type="submit">Create</button>
     </form>
 </body>
 </html>

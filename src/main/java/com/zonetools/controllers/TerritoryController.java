@@ -1,10 +1,13 @@
 package com.zonetools.controllers;
 
+import com.zonetools.dtos.TerritoryDto;
 import com.zonetools.facades.TerritoryFacade;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class TerritoryController {
@@ -35,7 +38,14 @@ public class TerritoryController {
 
     @GetMapping("/territories/new-territory")
     public String newTerritory(Model model) {
+        model.addAttribute("territoryDto", TerritoryDto.builder().build());
         return NEW_TERRITORY_PAGE;
+    }
+
+    @PostMapping("/territories/new-territory")
+    public String newTerritorySubmit(@ModelAttribute TerritoryDto territoryDto) {
+        territoryFacade.saveTerritory(territoryDto);
+        return "redirect:"+"/territories";
     }
 
 }
