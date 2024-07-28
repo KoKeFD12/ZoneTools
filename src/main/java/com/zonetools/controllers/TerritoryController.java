@@ -28,4 +28,9 @@ public class TerritoryController {
         return "territories";
     }
 
+    @GetMapping("/territories/new-territory")
+    public String newTerritory(Model model) {
+        return "new-territory";
+    }
+
 }
