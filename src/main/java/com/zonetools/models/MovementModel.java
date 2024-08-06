@@ -26,9 +26,10 @@ public class MovementModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private Character type;
 
-    @Column(name = "territory_id")
+    @Column(name = "territory_id", nullable = false)
     private Long territoryId;
 
     private String owner;
