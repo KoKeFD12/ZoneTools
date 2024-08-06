@@ -21,6 +21,7 @@ import java.time.LocalDate;
 public class TerritoryModel {
 
     @Id
+    @Column(nullable = false)
     private Long id;
 
     private Integer doors;
