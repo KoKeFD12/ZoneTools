@@ -1,5 +1,6 @@
 package com.zonetools.dtos;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,8 +14,10 @@ public class MovementDto {
 
     private Long id;
 
+    @NotEmpty
     private Character type;
 
+    @NotEmpty
     private Long territoryId;
 
     private String owner;
