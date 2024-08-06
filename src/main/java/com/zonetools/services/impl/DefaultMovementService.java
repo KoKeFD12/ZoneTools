@@ -6,7 +6,9 @@ import com.zonetools.services.MovementService;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -45,6 +47,10 @@ public class DefaultMovementService implements MovementService {
 
     @Override
     public MovementModel saveMovement(MovementModel movementModel) {
+        if (null == movementModel.getType()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+
         return movementDao.save(movementModel);
     }
 
