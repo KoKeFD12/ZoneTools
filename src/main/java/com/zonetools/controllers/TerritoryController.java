@@ -52,7 +52,8 @@ public class TerritoryController {
 
     @GetMapping("/movements/new-movement")
     public String newMovement(Model model) {
-        model.addAttribute("movementDto", MovementDto.builder().build());
+        model.addAttribute("movementDto", MovementDto.builder()
+                                                     .build());
         return NEW_MOVEMENT_PAGE;
     }
 
@@ -79,6 +80,21 @@ public class TerritoryController {
     public String newTerritorySubmit(@ModelAttribute TerritoryDto territoryDto) {
         territoryFacade.saveTerritory(territoryDto);
         return "redirect:" + "/territories";
+    }
+
+    @DeleteMapping("/territories/delete/{id}")
+    public ResponseEntity<Long> deleteTerritory(@PathVariable Long id) {
+        if (territoryFacade.findTerritoryById(id)
+                           .isPresent()) {
+            territoryFacade.deleteTerritory(territoryFacade.findTerritoryById(id)
+                                                           .get());
+
+            return ResponseEntity.ok()
+                                 .build();
+        }
+
+        return ResponseEntity.notFound()
+                             .build();
     }
 
 }
