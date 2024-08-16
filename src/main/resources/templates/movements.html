@@ -29,7 +29,7 @@
                     <td th:text="${movement.territoryId}"></td>
                     <td th:text="${movement.owner}"></td>
                     <td th:text="${movement.date}"></td>
-                    <td><button type="button" class="btn btn-primary" th:onclick="deleteMovementById([[${movement.id}]])">Delete</button></td>
+                    <td><button type="button" class="btn btn-primary" th:onclick="deleteById('movements', [[${movement.id}]])">Delete</button></td>
                 </tr>
             </table>
         </div>

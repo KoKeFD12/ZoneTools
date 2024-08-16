@@ -30,7 +30,7 @@
                     <td th:text="${territory.doors}"></td>
                     <td></td>
                     <td>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-danger" th:onclick="deleteById('territories', [[${territory.id}]])">Delete</button>
                         <button type="button" class="btn btn-secondary">Edit</button>
                     </td>
                 </tr>
