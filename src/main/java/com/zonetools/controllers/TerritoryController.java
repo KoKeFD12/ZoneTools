@@ -5,10 +5,12 @@ import com.zonetools.dtos.TerritoryDto;
 import com.zonetools.facades.MovementFacade;
 import com.zonetools.facades.TerritoryFacade;
 import jakarta.annotation.Resource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @Controller
 public class TerritoryController {
@@ -18,6 +20,7 @@ public class TerritoryController {
     private static final String TERRITORIES_PAGE = "territories";
     private static final String NEW_TERRITORY_PAGE = "new-territory";
     private static final String NEW_MOVEMENT_PAGE = "new-movement";
+    private static final String EDIT_TERRITORY_PAGE = "edit-territory";
 
     @Resource
     private TerritoryFacade territoryFacade;
@@ -52,7 +55,8 @@ public class TerritoryController {
 
     @GetMapping("/movements/new-movement")
     public String newMovement(Model model) {
-        model.addAttribute("movementDto", MovementDto.builder().build());
+        model.addAttribute("movementDto", MovementDto.builder()
+                                                     .build());
         return NEW_MOVEMENT_PAGE;
     }
 
@@ -79,6 +83,36 @@ public class TerritoryController {
     public String newTerritorySubmit(@ModelAttribute TerritoryDto territoryDto) {
         territoryFacade.saveTerritory(territoryDto);
         return "redirect:" + "/territories";
+    }
+
+    @GetMapping("/territories/edit-territory/{id}")
+    public String editTerritory(Model model, @PathVariable Long id, @ModelAttribute TerritoryDto territoryDto) {
+        territoryFacade.findTerritoryById(id)
+                       .map(optionalTerritoryDto -> model.addAttribute("territoryDto", optionalTerritoryDto))
+                       .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        return EDIT_TERRITORY_PAGE;
+    }
+
+    @PostMapping("/territories/edit-territory")
+    public String editTerritorySubmit(@ModelAttribute TerritoryDto territoryDto) {
+        territoryFacade.saveTerritory(territoryDto);
+        return "redirect:" + "/territories";
+    }
+
+    @DeleteMapping("/territories/delete/{id}")
+    public ResponseEntity<Long> deleteTerritory(@PathVariable Long id) {
+        if (territoryFacade.findTerritoryById(id)
+                           .isPresent()) {
+            territoryFacade.deleteTerritory(territoryFacade.findTerritoryById(id)
+                                                           .get());
+
+            return ResponseEntity.ok()
+                                 .build();
+        }
+
+        return ResponseEntity.notFound()
+                             .build();
     }
 
 }
