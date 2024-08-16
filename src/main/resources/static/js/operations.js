@@ -1,3 +1,3 @@
-function deleteMovementById(id) {
-    fetch('movements/delete/' + id, {method: "DELETE"});
+function deleteById(type, id) {
+    fetch(type + '/delete/' + id, {method: "DELETE"});
 }
