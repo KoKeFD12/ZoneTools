@@ -34,7 +34,7 @@
                     </td>
                     <td>
                         <button type="button" class="btn btn-danger" th:onclick="deleteById('territories', [[${territory.id}]])">Delete</button>
-                        <button type="button" class="btn btn-secondary">Edit</button>
+                        <a th:href="@{'territories/edit-territory/' + ${territory.id}}"><button type="button" class="btn btn-secondary">Edit</button></a>
                     </td>
                 </tr>
             </table>
